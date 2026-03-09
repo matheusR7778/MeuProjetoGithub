@@ -5,138 +5,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre nós | FocaAgora 🦭</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   
   <style>
     :root {
-      --primary-gradient: linear-gradient(135deg, #0d6efd, #6610f2);
+      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.3);
     }
-    body { font-family: 'Inter', sans-serif; }
-    
-    .navbar { background: var(--primary-gradient); }
 
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: #fdfdff;
+      color: #1e293b;
+    }
+
+    /* Navbar Glass */
+    .navbar-custom {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0.8rem 0;
+    }
+    .nav-link {
+      color: #64748b !important;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .nav-link:hover, .nav-link.active-page {
+      color: #6366f1 !important;
+    }
+
+    /* Hero Text */
+    .section-title {
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Card Sobre */
     .card-about {
-      border-radius: 20px;
-      border: none;
-      transition: transform 0.3s ease;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.03);
     }
 
     .icon-box {
-      width: 50px;
-      height: 50px;
-      background: #e7f1ff;
-      color: #0d6efd;
-      border-radius: 12px;
+      width: 60px;
+      height: 60px;
+      background: white;
+      color: #6366f1;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin-bottom: 1.5rem;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
     }
 
+    /* Imagem da Foca */
     .foca-img-wrapper {
       position: relative;
-      border-radius: 20px;
+      border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      transition: transform 0.5s ease;
+    }
+    .foca-img-wrapper:hover {
+      transform: scale(1.02);
     }
 
+    /* Badges de Desenvolvedores */
     .dev-badge {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 50px;
-      padding: 5px 15px;
-      display: inline-block;
+      background: white;
+      border: 1px solid #f1f5f9;
+      border-radius: 12px;
+      padding: 10px 20px;
       margin: 5px;
-      font-weight: 500;
-      color: #495057;
+      font-weight: 700;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      transition: all 0.3s;
+    }
+    .dev-badge:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px rgba(99, 102, 241, 0.1);
     }
 
-    .footer-custom { background: #1a1a1a; }
+    .footer-custom {
+      background: #0f172a;
+      border-radius: 40px 40px 0 0;
+      color: #94a3b8;
+    }
+
+    .bg-blur {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: var(--primary-gradient);
+      filter: blur(150px);
+      opacity: 0.04;
+      z-index: -1;
+      border-radius: 50%;
+    }
   </style>
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
-  <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="paginainicial.html">
-        <img src="./pomodoro_files/focalogo.png" width="35" alt="Logo" class="bg-white rounded-circle p-1">
-        FocaAgora
+  <div class="bg-blur" style="top: -10%; right: -10%;"></div>
+  <div class="bg-blur" style="bottom: -10%; left: -10%;"></div>
+
+  <header class="navbar-custom sticky-top shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="paginainicial.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="./pomodoro_files/focalogo.png" alt="Logo" width="38" class="bg-white rounded-circle p-1">
+        <span class="h4 mb-0 fw-bold text-dark">FocaAgora</span>
       </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
+      <nav class="d-none d-md-flex gap-2">
+        <a class="nav-link px-3 active-page" href="sobrenos.html">Sobre nós</a>
+        <a class="nav-link px-3" href="agenda.html">Agenda</a>
+        <a class="nav-link px-3" href="index.html">Início</a>
+        <a class="nav-link px-3" href="pomodoro.html">Pomodoro</a>
+      </nav>
+      <button class="btn btn-light d-md-none rounded-circle" data-bs-toggle="collapse" data-bs-target="#menu">
+        <i class="bi bi-list fs-4"></i>
       </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link px-3" href="agenda.html">Agenda</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="questionario.html">Questionário</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="pomodoro.html">Pomodoro</a></li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  </header>
 
   <main class="container my-5 flex-grow-1">
 
-    <div class="text-center mb-5 py-4">
-      <h2 class="display-5 fw-bold text-dark">Nossa Missão 🦭</h2>
-      <p class="lead text-secondary mx-auto" style="max-width: 600px;">
-        Transformar a produtividade em algo leve, divertido e, acima de tudo, focado.
+    <div class="text-center mb-5 py-4 animate__animated animate__fadeIn">
+      <span class="badge rounded-pill bg-light text-primary px-3 py-2 mb-3 border">Nossa História</span>
+      <h2 class="display-4 section-title mb-3">Nossa Missão 🦭</h2>
+      <p class="lead text-secondary mx-auto" style="max-width: 650px;">
+        Criamos uma ferramenta para quem quer dominar o tempo sem perder a leveza. Focar não precisa ser chato.
       </p>
     </div>
 
     <div class="row g-5 align-items-center">
 
-      <div class="col-lg-7">
+      <div class="col-lg-7 animate__animated animate__fadeInLeft">
         <div class="card card-about shadow-sm border-0 h-100">
           <div class="card-body p-4 p-md-5">
             <div class="icon-box">
-              <i class="bi bi-rocket-takeoff"></i>
+              <i class="bi bi-rocket-takeoff-fill"></i>
             </div>
             
-            <h3 class="fw-bold mb-4">O que é o FocaAgora?</h3>
+            <h3 class="fw-800 text-dark mb-4">O que é o FocaAgora?</h3>
             
-            <p class="fs-5 text-secondary mb-4">
-              O <strong>FocaAgora</strong> nasceu com o propósito de ajudar estudantes e profissionais a combaterem a procrastinação através da técnica <strong>Pomodoro</strong>, unindo organização e bem-estar.
+            <p class="fs-5 text-secondary mb-4" style="line-height: 1.6;">
+              O <strong>FocaAgora</strong> nasceu da necessidade de equilibrar a alta performance acadêmica com o descanso merecido. Utilizamos a técnica <strong>Pomodoro</strong> para criar ciclos de trabalho profundo.
             </p>
 
-            <div class="d-flex align-items-start gap-3 mb-4">
-              <div class="text-primary fs-4"><i class="bi bi-patch-check-fill"></i></div>
+            <div class="d-flex align-items-start gap-3 mb-5 p-3 rounded-4" style="background: rgba(99, 102, 241, 0.05);">
+              <div class="text-primary fs-3"><i class="bi bi-shield-check"></i></div>
               <div>
-                <h6 class="fw-bold mb-1 text-dark">Equilíbrio é Tudo</h6>
-                <p class="text-muted small mb-0">Nossa mascote foca representa o balanço ideal: imersão total no trabalho e diversão completa no descanso.</p>
+                <h6 class="fw-bold mb-1 text-dark">A Ciência do Equilíbrio</h6>
+                <p class="text-muted small mb-0">Nossa foca simboliza a adaptabilidade: ágil quando necessário e tranquila nos momentos de pausa.</p>
               </div>
             </div>
 
-            <div class="mt-5">
-              <h6 class="text-uppercase fw-bold text-primary mb-3" style="font-size: 0.8rem; letter-spacing: 1px;">Idealizado por:</h6>
-              <div class="d-flex flex-wrap">
-                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Pablo</span>
-                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Rômulo</span>
-                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Matheus</span>
-                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Pedro</span>
+            <div class="mt-4">
+              <h6 class="text-uppercase fw-800 text-secondary mb-4 small" style="letter-spacing: 2px;">Squad de Desenvolvimento</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <div class="dev-badge"><i class="bi bi-cpu text-primary"></i> Pablo</div>
+                <div class="dev-badge"><i class="bi bi-code-square text-purple" style="color:#a855f7"></i> Rômulo</div>
+                <div class="dev-badge"><i class="bi bi-terminal text-pink" style="color:#ec4899"></i> Matheus</div>
+                <div class="dev-badge"><i class="bi bi-layers text-info"></i> Pedro</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-5">
-        <div class="foca-img-wrapper">
+      <div class="col-lg-5 animate__animated animate__fadeInRight">
+        <div class="foca-img-wrapper mb-4">
           <img src="pomodoro_files/focaluzapagada.jpg" class="img-fluid w-100" alt="Foca estudando">
-          <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
-            <h5 class="mb-0 fw-bold">Foco & Café ☕</h5>
-            <p class="small mb-0 opacity-75">Nossa rotina de desenvolvimento</p>
+          <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white" style="background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));">
+            <h5 class="mb-0 fw-bold">Foco & Tecnologia ⚡</h5>
+            <p class="small mb-0 opacity-75">Transformando café em código.</p>
           </div>
         </div>
         
-        <div class="card card-about bg-white shadow-sm mt-4 border-0">
-          <div class="card-body p-4 text-center">
-            <h4 class="fw-bold text-primary mb-1">50+</h4>
-            <p class="text-muted small mb-0 text-uppercase fw-bold">Horas de Foco</p>
+        <div class="card card-about bg-white border-0 overflow-hidden shadow-sm">
+          <div class="card-body p-0">
+             <div class="p-4 d-flex align-items-center justify-content-between bg-primary text-white" style="background: var(--primary-gradient) !important;">
+                <h4 class="fw-bold mb-0">50+</h4>
+                <i class="bi bi-hourglass-split fs-3 opacity-50"></i>
+             </div>
+             <div class="p-3 text-center">
+                <p class="text-muted small mb-0 text-uppercase fw-800" style="letter-spacing: 1px;">Horas de desenvolvimento focado</p>
+             </div>
           </div>
         </div>
       </div>
@@ -145,14 +218,12 @@
 
   </main>
 
-  <footer class="footer-custom text-white text-center py-5 mt-auto">
-    <div class="container">
-      <p class="mb-2 fs-5">🦭 <strong>Pomodoro da Foca</strong></p>
-      <p class="text-secondary small mb-3">
-        Feito com amor, código e muito café.
-      </p>
-      <div class="border-top border-secondary border-opacity-25 pt-3">
-        <em class="text-secondary small">“Foco hoje, sucesso amanhã.”</em>
+  <footer class="footer-custom py-5 mt-auto">
+    <div class="container text-center">
+      <p class="mb-2 fs-5 fw-bold text-white">FocaAgora 🦭</p>
+      <p class="small opacity-75">Foco hoje, sucesso amanhã. Desenvolvido pelo Time Foca.</p>
+      <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+        <em class="text-secondary small">"A simplicidade é o último grau da sofisticação."</em>
       </div>
     </div>
   </footer>
