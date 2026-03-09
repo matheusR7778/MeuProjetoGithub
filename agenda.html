@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda | FocaAgora 🦭</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+    <div class="container">
+
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="paginainicial.html">
+        <img src="./pomodoro_files/focalogo.png" width="40" alt="Logo">
+        FocaAgora
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="sobrenos.html">Sobre nós</a></li>
+          <li class="nav-item"><a class="nav-link" href="pomodoro.html">Pomodoro</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="questionario.html">Questionário</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <main class="container my-5 flex-grow-1">
+
+    <section class="text-center mb-4">
+      <h2 class="fw-bold">Agenda de Tarefas 🗓️</h2>
+      <p class="text-muted">Organize suas tarefas e mantenha o foco nos estudos.</p>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body">
+
+        <form id="formTarefa" class="row g-3">
+
+          <div class="col-md-4">
+            <input type="text" id="titulo" class="form-control"
+              placeholder="Título da tarefa" required>
+          </div>
+
+          <div class="col-md-3">
+            <input type="date" id="data" class="form-control" required>
+          </div>
+
+          <div class="col-md-3">
+            <select id="periodo" class="form-select" required>
+              <option value="">Selecione o período</option>
+              <option value="Manhã">☀️ Manhã</option>
+              <option value="Tarde">🌤️ Tarde</option>
+              <option value="Noite">🌙 Noite</option>
+            </select>
+          </div>
+
+          <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary">
+              Adicionar
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!-- LISTA DE TAREFAS -->
+    <div class="card shadow-sm border-0 mb-5">
+      <div class="card-body">
+        <h5 class="mb-3">Suas tarefas</h5>
+        <div id="listaTarefas" class="list-group">
+          <!-- tarefas aparecem aqui -->
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGLE AGENDA -->
+    <div class="text-center">
+      <div id="agendamento-google"></div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
+    🦭 <strong>FocaAgora</strong> — Organize seu tempo e aumente seu foco.
+  </footer>
+
+  <!-- Google Calendar -->
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+  <script>
+    (function () {
+      var target = document.getElementById("agendamento-google");
+      window.addEventListener("load", function () {
+        calendar.schedulingButton.load({
+          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2MhNUx_ZeC8c_gI1nqwiQ074uazwY_y6J6SFp0Sf0Q_2edfWmMgVzdS8KG_OZwjRN4F99g4Xyx?gv=true",
+          color: "#039BE5",
+          label: "Agendar um compromisso",
+          target,
+        });
+      });
+    })();
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
