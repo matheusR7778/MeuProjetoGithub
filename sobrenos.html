@@ -5,77 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre nós | FocaAgora 🦭</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #0d6efd, #6610f2);
+    }
+    body { font-family: 'Inter', sans-serif; }
+    
+    .navbar { background: var(--primary-gradient); }
+
+    .card-about {
+      border-radius: 20px;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      background: #e7f1ff;
+      color: #0d6efd;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .foca-img-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .dev-badge {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 50px;
+      padding: 5px 15px;
+      display: inline-block;
+      margin: 5px;
+      font-weight: 500;
+      color: #495057;
+    }
+
+    .footer-custom { background: #1a1a1a; }
+  </style>
 </head>
 
 <body class="bg-light d-flex flex-column min-vh-100">
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+  <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
     <div class="container">
-
       <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="paginainicial.html">
-        <img src="./pomodoro_files/focalogo.png" width="40" alt="Logo">
+        <img src="./pomodoro_files/focalogo.png" width="35" alt="Logo" class="bg-white rounded-circle p-1">
         FocaAgora
       </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="questionario.html">Questionário</a></li>
-          <li class="nav-item"><a class="nav-link" href="pomodoro.html">Pomodoro</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="agenda.html">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="questionario.html">Questionário</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="pomodoro.html">Pomodoro</a></li>
         </ul>
       </div>
-
     </div>
   </nav>
 
-  <!-- CONTEÚDO -->
   <main class="container my-5 flex-grow-1">
 
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Sobre nós 🦭</h2>
-      <p class="text-muted">Conheça a história por trás do FocaAgora</p>
+    <div class="text-center mb-5 py-4">
+      <h2 class="display-5 fw-bold text-dark">Nossa Missão 🦭</h2>
+      <p class="lead text-secondary mx-auto" style="max-width: 600px;">
+        Transformar a produtividade em algo leve, divertido e, acima de tudo, focado.
+      </p>
     </div>
 
-    <div class="row g-4 align-items-center">
+    <div class="row g-5 align-items-center">
 
-      <!-- TEXTO -->
       <div class="col-lg-7">
-        <div class="card shadow-sm border-0">
-          <div class="card-body p-4">
-            <p class="mb-3">
-              O <strong>FocaAgora</strong> nasceu com o objetivo de ajudar pessoas a combater a procrastinação
-              e desenvolver hábitos produtivos por meio da técnica <strong>Pomodoro</strong>.
+        <div class="card card-about shadow-sm border-0 h-100">
+          <div class="card-body p-4 p-md-5">
+            <div class="icon-box">
+              <i class="bi bi-rocket-takeoff"></i>
+            </div>
+            
+            <h3 class="fw-bold mb-4">O que é o FocaAgora?</h3>
+            
+            <p class="fs-5 text-secondary mb-4">
+              O <strong>FocaAgora</strong> nasceu com o propósito de ajudar estudantes e profissionais a combaterem a procrastinação através da técnica <strong>Pomodoro</strong>, unindo organização e bem-estar.
             </p>
 
-            <p class="mb-3">
-              Nossa mascote, a <em>Foca</em> 🦭, representa o equilíbrio entre foco e descanso —
-              estudando com dedicação e se divertindo nos intervalos.
-            </p>
+            <div class="d-flex align-items-start gap-3 mb-4">
+              <div class="text-primary fs-4"><i class="bi bi-patch-check-fill"></i></div>
+              <div>
+                <h6 class="fw-bold mb-1 text-dark">Equilíbrio é Tudo</h6>
+                <p class="text-muted small mb-0">Nossa mascote foca representa o balanço ideal: imersão total no trabalho e diversão completa no descanso.</p>
+              </div>
+            </div>
 
-            <p class="mb-0">
-              Este projeto foi criado por <strong>Pablo, Rômulo, Matheus e Pedro</strong> com amor,
-              código e muito café ☕, buscando oferecer uma experiência leve, divertida e eficiente
-              para quem quer estudar ou trabalhar com mais concentração.
-            </p>
+            <div class="mt-5">
+              <h6 class="text-uppercase fw-bold text-primary mb-3" style="font-size: 0.8rem; letter-spacing: 1px;">Idealizado por:</h6>
+              <div class="d-flex flex-wrap">
+                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Pablo</span>
+                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Rômulo</span>
+                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Matheus</span>
+                <span class="dev-badge"><i class="bi bi-code-slash me-2 text-primary"></i>Pedro</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- IMAGEM -->
-      <div class="col-lg-5 text-center">
-        <div class="card shadow-sm border-0">
-          <div class="card-body">
-            <img src="pomodoro_files/focaluzapagada.jpg"
-                 class="img-fluid rounded"
-                 alt="Foca estudando">
+      <div class="col-lg-5">
+        <div class="foca-img-wrapper">
+          <img src="pomodoro_files/focaluzapagada.jpg" class="img-fluid w-100" alt="Foca estudando">
+          <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+            <h5 class="mb-0 fw-bold">Foco & Café ☕</h5>
+            <p class="small mb-0 opacity-75">Nossa rotina de desenvolvimento</p>
+          </div>
+        </div>
+        
+        <div class="card card-about bg-white shadow-sm mt-4 border-0">
+          <div class="card-body p-4 text-center">
+            <h4 class="fw-bold text-primary mb-1">50+</h4>
+            <p class="text-muted small mb-0 text-uppercase fw-bold">Horas de Foco</p>
           </div>
         </div>
       </div>
@@ -84,15 +145,18 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-white text-center py-3 mt-auto">
-    🦭 <strong>Pomodoro da Foca</strong> — Desenvolvido por
-    <span class="fw-semibold">Pablo, Rômulo, Matheus e Pedro</span> 💙 <br>
-    <em>Foco hoje, sucesso amanhã.</em>
+  <footer class="footer-custom text-white text-center py-5 mt-auto">
+    <div class="container">
+      <p class="mb-2 fs-5">🦭 <strong>Pomodoro da Foca</strong></p>
+      <p class="text-secondary small mb-3">
+        Feito com amor, código e muito café.
+      </p>
+      <div class="border-top border-secondary border-opacity-25 pt-3">
+        <em class="text-secondary small">“Foco hoje, sucesso amanhã.”</em>
+      </div>
+    </div>
   </footer>
 
-  <!-- JS -->
-  <script src="js/sobrenos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

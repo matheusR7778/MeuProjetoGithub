@@ -1,146 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questionário Gestão do Tempo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Produtividade | FocaAgora 🦭</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #0d6efd, #6610f2);
+    }
+    body { font-family: 'Inter', sans-serif; }
+    
+    .navbar { background: var(--primary-gradient); }
+
+    /* Estilo de Cartão de Pergunta */
+    .card-quiz {
+      border-radius: 20px;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Barra de Progresso Customizada */
+    .progress {
+      height: 8px;
+      border-radius: 10px;
+      background-color: #e9ecef;
+    }
+    .progress-bar {
+      background: var(--primary-gradient);
+      border-radius: 10px;
+    }
+
+    /* Estilização das Opções (Radio Buttons camuflados) */
+    .option-container {
+      cursor: pointer;
+      border: 2px solid #f8f9fa;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+      background: #f8f9fa;
+    }
+    .option-container:hover {
+      border-color: #0d6efd;
+      background: #f0f7ff;
+    }
+    .option-container.selected {
+      border-color: #0d6efd;
+      background: #e7f1ff;
+      font-weight: 600;
+    }
+
+    .btn-hero {
+      border-radius: 50px;
+      padding: 12px 35px;
+      font-weight: 700;
+      background: var(--primary-gradient);
+      border: none;
+    }
+
+    .alert-custom {
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .footer-custom { background: #1a1a1a; }
+  </style>
 </head>
 
 <body class="bg-light d-flex flex-column min-vh-100">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
-  <div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="paginainicial.html">
+        <img src="./pomodoro_files/focalogo.png" width="35" alt="Logo" class="bg-white rounded-circle p-1">
+        FocaAgora
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link px-3" href="sobrenos.html">Sobre nós</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="agenda.html">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="pomodoro.html">Pomodoro</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="paginainicial.html">
-      <img src="./pomodoro_files/focalogo.png" width="40" alt="Logo">
-      FocaAgora
-    </a>
+  <main class="container my-5 flex-grow-1">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div id="home-page" class="page active text-center">
+      <div class="mb-4">
+        <i class="bi bi-stopwatch text-primary display-1"></i>
+        <h1 class="fw-bold mt-3">Quiz Gestão do Tempo</h1>
+        <p class="lead text-secondary">Descubra seu estilo de produtividade e pare de procrastinar.</p>
+      </div>
 
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="sobrenos.html">Sobre nós</a></li>
-        <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="pomodoro.html">Pomodoro</a></li>
-      </ul>
+      <div class="card card-quiz shadow-sm mb-5 mx-auto" style="max-width: 800px;">
+        <div class="card-body p-5">
+          <p class="fs-5 text-dark">
+            Este questionário analisa seus hábitos através de <strong>8 perguntas estratégicas</strong>. 
+            Ao final, você receberá um perfil detalhado com recomendações personalizadas.
+          </p>
+
+          <div class="row mt-4 g-3">
+            <div class="col-md-4">
+              <div class="alert alert-primary alert-custom p-3"><i class="bi bi-bar-chart-line d-block fs-3 mb-2"></i> Perfil Analítico</div>
+            </div>
+            <div class="col-md-4">
+              <div class="alert alert-success alert-custom p-3"><i class="bi bi-chat-heart d-block fs-3 mb-2"></i> Feedback Real</div>
+            </div>
+            <div class="col-md-4">
+              <div class="alert alert-warning alert-custom p-3"><i class="bi bi-lightning-charge d-block fs-3 mb-2"></i> Dicas Práticas</div>
+            </div>
+          </div>
+
+          <button id="startBtn" class="btn btn-primary btn-hero btn-lg mt-5 shadow">
+            Iniciar Questionário <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
     </div>
 
-  </div>
-</nav>
-
-<!-- CONTEÚDO -->
-<main class="container my-5 flex-grow-1">
-
-  <!-- HOME QUIZ -->
-  <div id="home-page" class="page active">
-
-    <div class="text-center mb-4">
-      <h1 class="fw-bold">⏱️ Quiz Gestão do Tempo</h1>
-      <p class="lead text-muted">Descubra seu estilo de produtividade</p>
-    </div>
-
-    <div class="card border-0 shadow-sm mb-4">
-      <div class="card-body text-center">
-        <p>
-          Este questionário analisa seus hábitos de gestão do tempo através de 8 perguntas estratégicas.
-          Você receberá um perfil detalhado com recomendações personalizadas para otimizar sua produtividade.
-        </p>
-
-        <div class="row mt-4 g-3">
-          <div class="col-md-4">
-            <div class="alert alert-primary mb-0">📊 Análise de perfil</div>
+    <div id="quiz-page" class="page d-none">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          
+          <div class="mb-5 text-center">
+            <h4 class="fw-bold mb-3" id="progressText">Questão 1 de 8</h4>
+            <div class="progress mx-auto" style="max-width: 400px;">
+              <div class="progress-bar progress-bar-animated" id="progressFill" role="progressbar" style="width: 12.5%"></div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <div class="alert alert-success mb-0">💬 50+ respostas</div>
+
+          <div class="card card-quiz shadow-lg mb-4">
+            <div class="card-body p-4 p-md-5">
+              <div id="questionContainer">
+                <h3 class="fw-bold mb-4">Com que frequência você planeja o seu dia?</h3>
+                <div class="option-container">Sempre, na noite anterior ou de manhã cedo.</div>
+                <div class="option-container">Às vezes, quando lembro.</div>
+                <div class="option-container">Nunca, prefiro deixar a vida me levar.</div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <div class="alert alert-warning mb-0">🚀 Estratégias práticas</div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <button id="prevBtn" class="btn btn-link text-decoration-none text-secondary fw-bold" disabled>
+              <i class="bi bi-chevron-left"></i> Voltar
+            </button>
+            <button id="nextBtn" class="btn btn-primary btn-hero shadow-sm">
+              Próxima <i class="bi bi-chevron-right"></i>
+            </button>
+            <button id="submitBtn" class="btn btn-success btn-hero shadow-sm" style="display:none;">
+              <i class="bi bi-check-all"></i> Ver Resultados
+            </button>
+          </div>
+
+          <div class="alert alert-info alert-custom d-flex align-items-center">
+            <i class="bi bi-lightbulb fs-4 me-3"></i>
+            <div><strong>Dica:</strong> Seja honesto consigo mesmo para obter um resultado preciso!</div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <button id="startBtn" class="btn btn-primary btn-lg mt-4 px-5">
-          Iniciar Questionário
+    <div id="results-page" class="page d-none text-center">
+      <div class="mb-4">
+        <i class="bi bi-trophy text-warning display-1"></i>
+        <h1 class="fw-bold mt-3">Seu Perfil de Produtividade</h1>
+        <p class="text-secondary">Veja como você pode melhorar sua gestão do tempo:</p>
+      </div>
+
+      <div id="resultsContainer" class="mb-5 mx-auto" style="max-width: 700px;">
+        </div>
+
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <button id="restartBtn" class="btn btn-primary btn-hero shadow">
+          <i class="bi bi-arrow-clockwise me-2"></i> Refazer Questionário
         </button>
-
-        <p class="text-muted mt-3 mb-0">
-          Baseado em metodologias de produtividade comprovadas
-        </p>
+        <a href="paginainicial.html" class="btn btn-outline-secondary rounded-pill px-4">
+          <i class="bi bi-house me-2"></i> Voltar ao Início
+        </a>
       </div>
     </div>
 
-  </div>
+  </main>
 
-  <!-- PÁGINA QUIZ -->
-  <div id="quiz-page" class="page">
-
-    <div class="mb-4">
-      <label class="form-label fw-semibold" id="progressText">Questão 1 de 8</label>
-      <div class="progress">
-        <div class="progress-bar" id="progressFill" role="progressbar" style="width: 0%"></div>
-      </div>
+  <footer class="footer-custom text-white text-center py-5 mt-auto">
+    <div class="container">
+      <p class="mb-2">🦭 <strong>FocaAgora</strong> — Melhore sua performance.</p>
+      <p class="small text-secondary mb-0">Desenvolvido por Pablo, Rômulo, Matheus e Pedro 💙</p>
     </div>
+  </footer>
 
-    <div class="card shadow-sm border-0 mb-4">
-      <div class="card-body">
-        <div id="questionContainer"></div>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-between mb-4">
-      <button id="prevBtn" class="btn btn-outline-secondary" disabled>← Voltar</button>
-      <button id="nextBtn" class="btn btn-primary">Próxima →</button>
-      <button id="submitBtn" class="btn btn-success" style="display:none;">
-        Ver Resultados
-      </button>
-    </div>
-
-    <div class="alert alert-info">
-      💡 <strong>Dica:</strong> Pense em como você realmente age, não como gostaria de agir.
-    </div>
-
-  </div>
-
-  <!-- RESULTADOS -->
-  <div id="results-page" class="page">
-
-    <div class="text-center mb-4">
-      <h1 class="fw-bold">📈 Seu Perfil de Produtividade</h1>
-      <p class="text-muted">Análise completa do seu estilo de gestão do tempo</p>
-    </div>
-
-    <div id="resultsContainer" class="mb-4"></div>
-
-    <div class="d-flex flex-wrap gap-3 justify-content-center">
-      <button id="restartBtn" class="btn btn-primary px-4">
-        Refazer Questionário
-      </button>
-      <button id="homeBtn" class="btn btn-outline-secondary px-4">
-        Página Inicial
-      </button>
-    </div>
-
-  </div>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3 mt-auto">
-  🦭 <strong>Pomodoro da Foca</strong> — Desenvolvido por
-  <span class="fw-semibold">Pablo, Rômulo, Matheus e Pedro</span> 💙 <br>
-  <em>Foco hoje, sucesso amanhã.</em>
-</footer>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/questionario.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/questionario.js"></script>
 
 </body>
 </html>
